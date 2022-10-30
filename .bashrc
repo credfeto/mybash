@@ -215,29 +215,11 @@ alias clickpaste='sleep 3; xdotool type "$(xclip -o -selection clipboard)"'
 # Use the best version of pico installed
 edit ()
 {
-	if [ "$(type -t jpico)" = "file" ]; then
-		# Use JOE text editor http://joe-editor.sourceforge.net/
-		jpico -nonotice -linums -nobackups "$@"
-	elif [ "$(type -t nano)" = "file" ]; then
-		nano -c "$@"
-	elif [ "$(type -t pico)" = "file" ]; then
-		pico "$@"
-	else
-		nvim "$@"
-	fi
+	nano "$@"
 }
 sedit ()
 {
-	if [ "$(type -t jpico)" = "file" ]; then
-		# Use JOE text editor http://joe-editor.sourceforge.net/
-		sudo jpico -nonotice -linums -nobackups "$@"
-	elif [ "$(type -t nano)" = "file" ]; then
-		sudo nano -c "$@"
-	elif [ "$(type -t pico)" = "file" ]; then
-		sudo pico "$@"
-	else
-		sudo nvim "$@"
-	fi
+	sudo nano "$@"
 }
 
 # Extracts any archive(s) (if unp isn't installed)
