@@ -2,6 +2,14 @@
 iatest=$(expr index "$-" i)
 
 #######################################################
+# SCRIPT Paths
+#######################################################
+
+PATH="$PATH:/home/markr/work/personal/scripts/db"
+PATH="$PATH:/home/markr/work/personal/scripts/general"
+PATH="$PATH:/home/markr/work/personal/scripts/git"
+
+#######################################################
 # SOURCED ALIAS'S AND SCRIPTS BY zachbrowne.me
 #######################################################
 
