@@ -9,6 +9,18 @@ PATH="$PATH:/home/markr/work/personal/scripts/db"
 PATH="$PATH:/home/markr/work/personal/scripts/general"
 PATH="$PATH:/home/markr/work/personal/scripts/git"
 
+# NVM
+[ -d "$HOME/.nvm" ] && export NVM_DIR="$HOME/.nvm"
+[ -d "$HOME/.nvm" ] && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -d "$HOME/.nvm" ] && [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# SAM
+export SAM_CLI_BETA_ESBUILD=1
+
+# load in work specific secrets
+[ -f "$HOME/work/funfair/secrets.bashrc" ] && \. "$HOME/work/funfair/secrets.bashrc" 
+
+
 #######################################################
 # SOURCED ALIAS'S AND SCRIPTS BY zachbrowne.me
 #######################################################
