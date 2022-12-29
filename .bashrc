@@ -20,6 +20,7 @@ export SAM_CLI_BETA_ESBUILD=1
 # load in work specific secrets
 [ -f "$HOME/work/funfair/secrets.bashrc" ] && \. "$HOME/work/funfair/secrets.bashrc" 
 
+[ -f "$HOME/.local/share/JetBrains/Toolbox/scripts" ] && PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
 
 #######################################################
 # SOURCED ALIAS'S AND SCRIPTS BY zachbrowne.me
