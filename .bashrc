@@ -10,8 +10,10 @@ iatest=$(expr index "$-" i)
 [ -d "$HOME/work/personal/scripts/git" ] && PATH="$PATH:$HOME/work/personal/scripts/git"
 
 # DOTNET
-[ -d "/zram/$LOGNAME/dotnet" ] && PATH="$PATH:/zram/$LOGNAME/dotnet"
-[ -d "/usr/src/dotnet" ] && PATH="$PATH:/usr/src/dotnet"
+[ -d "/zram/$LOGNAME/dotnet" ] && DOTNET_ROOT:/zram/$LOGNAME/dotnet
+[ -d "/usr/src/dotnet" ] && [ -z "$DOTNET_ROOT" ] && DOTNET_ROOT=/usr/src/dotnet
+[ -z "$DOTNET_ROOT" ] $DOTNET_ROOT:$DOTNET_ROOT/tools
+
 
 # NVM
 [ -d "$HOME/.nvm" ] && export NVM_DIR="$HOME/.nvm"
