@@ -9,8 +9,9 @@ iatest=$(expr index "$-" i)
 [ -d "$HOME/work/personal/scripts/general" ] && PATH="$PATH:$HOME/work/personal/scripts/general"
 [ -d "$HOME/work/personal/scripts/git" ] && PATH="$PATH:$HOME/work/personal/scripts/git"
 
-[ -d "/zram/$LOGNAME/dotnet" && PATH="$PATH:/zram/$LOGNAME/dotnet"
-[ -d "/usr/src/dotnet" && PATH="$PATH:/usr/src/dotnet"
+# DOTNET
+[ -d "/zram/$LOGNAME/dotnet" ] && PATH="$PATH:/zram/$LOGNAME/dotnet"
+[ -d "/usr/src/dotnet" ] && PATH="$PATH:/usr/src/dotnet"
 
 # NVM
 [ -d "$HOME/.nvm" ] && export NVM_DIR="$HOME/.nvm"
