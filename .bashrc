@@ -148,6 +148,8 @@ alias cls='clear'
 alias pacman='sudo pacman'
 alias multitail='multitail --no-repeat -c'
 alias freshclam='sudo freshclam'
+alias npm="socket npm"
+alias npx="socket npx"
 
 # Change directory aliases
 alias home='cd ~'
