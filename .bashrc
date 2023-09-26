@@ -32,6 +32,14 @@ export SAM_CLI_BETA_ESBUILD=1
 [ -f "$HOME/.local/share/JetBrains/Toolbox/scripts" ] && PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
 
 #######################################################
+# PACMAN ALIASES
+#######################################################
+
+alias pacman-reinstall="pacman -Qqn | sudo pacman -S -"
+alias pacman-rebuild-aur="yay -Sy --rebuildtree --rebuildall $(pacman -Qqme)"
+alias pacman-remove-unused="pacman -Qdtq | pacman -Rs -"
+
+#######################################################
 # SOURCED ALIAS'S AND SCRIPTS BY zachbrowne.me
 #######################################################
 
@@ -549,3 +557,5 @@ eval "$(starship init bash)"
 #Autojump
 
 . /usr/share/autojump/autojump.sh
+
+
