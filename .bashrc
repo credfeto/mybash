@@ -2,6 +2,29 @@
 iatest=$(expr index "$-" i)
 
 
+echo "HOME: $HOME"
+
+# The $XDG_DATA_HOME environment variable is not set, make sure to add it to your shell's configuration before setting any of the other environment variables!
+export XDG_DATA_HOME=$HOME/.local/share
+echo "XDG_DATA_HOME: $XDG_DATA_HOME"
+mkdir $XDG_DATA_HOME > /dev/null 2>&1
+
+# The $XDG_CONFIG_HOME environment variable is not set, make sure to add it to your shell's configuration before setting any of the other environment variables!
+export XDG_CONFIG_HOME=$HOME/.config
+echo "XDG_CONFIG_HOME: $XDG_CONFIG_HOME"
+mkdir $XDG_CONFIG_HOME > /dev/null 2>&1
+
+# The $XDG_STATE_HOME environment variable is not set, make sure to add it to your shell's configuration before setting any of the other environment variables!
+export XDG_STATE_HOME=$HOME/.local/state
+echo "XDG_STATE_HOME: $XDG_STATE_HOME"
+mkdir $XDG_STATE_HOME > /dev/null 2>&1
+
+# The $XDG_CACHE_HOME environment variable is not set, make sure to add it to your shell's configuration before setting any of the other environment variables!
+export XDG_CACHE_HOME=$HOME/.cache
+echo "XDG_CACHE_HOME: $XDG_CACHE_HOME"
+mkdir $XDG_CACHE_HOME > /dev/null 2>&1
+
+
 #######################################################
 # XDG
 #######################################################
@@ -11,7 +34,7 @@ iatest=$(expr index "$-" i)
 #export AWS_CONFIG_FILE="$XDG_CONFIG_HOME"/aws/config
 
 # Bash History
-#export HISTFILE="${XDG_STATE_HOME}"/bash/history
+export HISTFILE="${XDG_STATE_HOME}"/bash/history
 
 # Cargo
 #export CARGO_HOME="$XDG_DATA_HOME"/cargo
