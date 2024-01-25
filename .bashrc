@@ -7,50 +7,50 @@ iatest=$(expr index "$-" i)
 #######################################################
 
 ## AWS
-export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME"/aws/credentials
-export AWS_CONFIG_FILE="$XDG_CONFIG_HOME"/aws/config
+#export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME"/aws/credentials
+#export AWS_CONFIG_FILE="$XDG_CONFIG_HOME"/aws/config
 
 # Bash History
-export HISTFILE="${XDG_STATE_HOME}"/bash/history
+#export HISTFILE="${XDG_STATE_HOME}"/bash/history
 
 # Cargo
-export CARGO_HOME="$XDG_DATA_HOME"/cargo
+#export CARGO_HOME="$XDG_DATA_HOME"/cargo
 
 # Docker
-export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
+#export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 
 # GnuPG
-export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+#export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 
 # GO
-export GOPATH="$XDG_DATA_HOME"/go
+#export GOPATH="$XDG_DATA_HOME"/go
 
 # GTK
-export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+#export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 
 # IPFS
-export IPFS_PATH="$XDG_DATA_HOME"/ipfs
+#export IPFS_PATH="$XDG_DATA_HOME"/ipfs
 
 # KDE
-export KDEHOME="$XDG_CONFIG_HOME"/kde
+#export KDEHOME="$XDG_CONFIG_HOME"/kde
 
 # Less
-export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
+#export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
 
 # NPM
-export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc 
+#export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc 
 
 # NUGET
-export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages
+#export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages
 
 # NV
-export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
+#export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
 
 # NVM
-export NVM_DIR="$XDG_DATA_HOME"/nvm
+#export NVM_DIR="$XDG_DATA_HOME"/nvm
 
 # XAuthority
-export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+#export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 
 
 
