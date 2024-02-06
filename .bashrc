@@ -91,6 +91,13 @@ export HISTFILE="${XDG_STATE_HOME}"/bash/history
 #[ -z "$DOTNET_ROOT" ] && DOTNET_ROOT=$DOTNET_ROOT/tools
 
 
+export DOTNET_NOLOGO=true
+export DOTNET_PRINT_TELEMETRY_MESSAGE=false
+export DOTNET_ReadyToRun=0
+export DOTNET_TC_QuickJitForLoops=1
+export DOTNET_TieredPGO=1
+export MSBUILDTERMINALLOGGER=auto
+
 # NVM
 [ -d "$HOME/.nvm" ] && export NVM_DIR="$HOME/.nvm"
 [ -d "$HOME/.nvm" ] && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
