@@ -2,27 +2,27 @@
 iatest=$(expr index "$-" i)
 
 
-echo "HOME: $HOME"
+#echo "HOME: $HOME"
 
 # The $XDG_DATA_HOME environment variable is not set, make sure to add it to your shell's configuration before setting any of the other environment variables!
 export XDG_DATA_HOME=$HOME/.local/share
-echo "XDG_DATA_HOME: $XDG_DATA_HOME"
-mkdir $XDG_DATA_HOME > /dev/null 2>&1
+#echo "XDG_DATA_HOME: $XDG_DATA_HOME"
+[ ! -d "$XDG_DATA_HOME" ] && mkdir $XDG_DATA_HOME > /dev/null 2>&1
 
 # The $XDG_CONFIG_HOME environment variable is not set, make sure to add it to your shell's configuration before setting any of the other environment variables!
 export XDG_CONFIG_HOME=$HOME/.config
-echo "XDG_CONFIG_HOME: $XDG_CONFIG_HOME"
-mkdir $XDG_CONFIG_HOME > /dev/null 2>&1
+#echo "XDG_CONFIG_HOME: $XDG_CONFIG_HOME"
+[ ! -d "$XDG_CONFIG_HOME" ] && mkdir $XDG_CONFIG_HOME > /dev/null 2>&1
 
 # The $XDG_STATE_HOME environment variable is not set, make sure to add it to your shell's configuration before setting any of the other environment variables!
 export XDG_STATE_HOME=$HOME/.local/state
-echo "XDG_STATE_HOME: $XDG_STATE_HOME"
-mkdir $XDG_STATE_HOME > /dev/null 2>&1
+#echo "XDG_STATE_HOME: $XDG_STATE_HOME"
+[ ! -d "$XDG_STATE_HOME" ] && mkdir $XDG_STATE_HOME > /dev/null 2>&1
 
 # The $XDG_CACHE_HOME environment variable is not set, make sure to add it to your shell's configuration before setting any of the other environment variables!
 export XDG_CACHE_HOME=$HOME/.cache
-echo "XDG_CACHE_HOME: $XDG_CACHE_HOME"
-mkdir $XDG_CACHE_HOME > /dev/null 2>&1
+#echo "XDG_CACHE_HOME: $XDG_CACHE_HOME"
+[ ! -d "$XDG_CACHE_HOME" ] && mkdir $XDG_CACHE_HOME > /dev/null 2>&1
 
 
 #######################################################
@@ -30,50 +30,61 @@ mkdir $XDG_CACHE_HOME > /dev/null 2>&1
 #######################################################
 
 ## AWS
-#export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME"/aws/credentials
-#export AWS_CONFIG_FILE="$XDG_CONFIG_HOME"/aws/config
+[ ! -d "$XDG_CONFIG_HOME/aws" ] && mkdir "$XDG_CONFIG_HOME/aws" > /dev/null 2>&1
+export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials"
+export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
 
 # Bash History
-export HISTFILE="${XDG_STATE_HOME}"/bash/history
+[ ! -d "$XDG_STATE_HOME/bash" ] && mkdir "$XDG_STATE_HOME/bash" > /dev/null 2>&1
+export HISTFILE="${XDG_STATE_HOME}/bash/history"
 
 # Cargo
-#export CARGO_HOME="$XDG_DATA_HOME"/cargo
+[ ! -d "$XDG_DATA_HOME/cargo" ] && mkdir "$XDG_DATA_HOME/cargo" > /dev/null 2>&1
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
 
 # Docker
-#export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
+[ ! -d "$XDG_CONFIG_HOME/docker" ] && mkdir "$XDG_CONFIG_HOME/docker" > /dev/null 2>&1
+export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 
 # GnuPG
-#export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+[ ! -d "$XDG_DATA_HOME/gnupg" ] && mkdir "$XDG_DATA_HOME/gnupg" > /dev/null 2>&1
+export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 
 # GO
-#export GOPATH="$XDG_DATA_HOME"/go
+[ ! -d "$XDG_DATA_HOME/go" ] && mkdir "$XDG_DATA_HOME/go" > /dev/null 2>&1
+export GOPATH="$XDG_DATA_HOME/go"
 
 # GTK
-#export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+[ ! -d "$XDG_CONFIG_HOME/gtk-2.0" ] && mkdir "$XDG_CONFIG_HOME/gtk2.0" > /dev/null 2>&1
+export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 
 # IPFS
-#export IPFS_PATH="$XDG_DATA_HOME"/ipfs
+[ ! -d "$XDG_DATA_HOME/ipfs" ] && mkdir "$XDG_DATAHOME/ipfs" > /dev/null 2>&1
+export IPFS_PATH="$XDG_DATA_HOME/ipfs"
 
 # KDE
-#export KDEHOME="$XDG_CONFIG_HOME"/kde
+[ ! -d "$XDG_CONFIG_HOME/kde" ] && mkdir "$XDG_CONFIG_HOME/kde" > /dev/null 2>&1
+export KDEHOME="$XDG_CONFIG_HOME/kde"
 
 # Less
-#export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
+[ ! -d "$XDG_CACHE_HOME/less" ] && mkdir "$XDG_CACHE_HOME/less" > /dev/null 2>&1
+export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
 
 # NPM
-#export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc 
+[ ! -d "$XDG_CONFIG_HOME/npm" ] && mkdir "$XDG_CONFIG_HOME/npm" > /dev/null 2>&1
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 
 # NUGET
-#export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages
+[ ! -d "$XDG_CACHE_HOME/NuGetPackages" ] && mkdir "$XDG_CACHE_HOME/NugetPackages" > /dev/null 2>&1
+export NUGET_PACKAGES="$XDG_CACHE_HOME/NuGetPackages"
 
 # NV
-#export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
-
+export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
 # NVM
-#export NVM_DIR="$XDG_DATA_HOME"/nvm
+export NVM_DIR="$XDG_DATA_HOME/nvm"
 
 # XAuthority
-#export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 
 
 
@@ -93,15 +104,17 @@ export HISTFILE="${XDG_STATE_HOME}"/bash/history
 
 export DOTNET_NOLOGO=true
 export DOTNET_PRINT_TELEMETRY_MESSAGE=false
+export DOTNET_JitCollect64BitCounts=1
 export DOTNET_ReadyToRun=0
 export DOTNET_TC_QuickJitForLoops=1
+export DOTNET_TC_CallCountingDelayMs=0
 export DOTNET_TieredPGO=1
 export MSBUILDTERMINALLOGGER=auto
 
+
 # NVM
-[ -d "$HOME/.nvm" ] && export NVM_DIR="$HOME/.nvm"
-[ -d "$HOME/.nvm" ] && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -d "$HOME/.nvm" ] && [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 alias npm="socket npm"
 alias npx="socket npx"
@@ -120,7 +133,7 @@ export SAM_CLI_BETA_ESBUILD=1
 
 alias pacman-reinstall="pacman -Qqn | sudo pacman -S -"
 alias pacman-rebuild-aur="yay -Sy --rebuildtree --rebuildall $(pacman -Qqme)"
-alias pacman-remove-unused="pacman -Qdtq | pacman -Rs -"
+alias pacman-remove-unused="pacman -Qdtq | sudo pacman -Rs -"
 
 #######################################################
 # SOURCED ALIAS'S AND SCRIPTS BY zachbrowne.me
