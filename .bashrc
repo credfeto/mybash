@@ -118,6 +118,7 @@ export MSBUILDTERMINALLOGGER=auto
 
 alias npm="socket npm"
 alias npx="socket npx"
+export NODE_OPTIONS="--max-old-space-size=8192"
 
 # SAM
 export SAM_CLI_BETA_ESBUILD=1
