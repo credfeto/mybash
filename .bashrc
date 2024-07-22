@@ -99,7 +99,9 @@ export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 # DOTNET
 [ -d "/zram/$LOGNAME/dotnet" ] && DOTNET_ROOT=/zram/$LOGNAME/dotnet
 [ -d "/usr/src/dotnet" ] && [ -z "$DOTNET_ROOT" ] && DOTNET_ROOT=/usr/src/dotnet
+[ -d "/usr/share/dotnet" ] && [ -z "$DOTNET_ROOT" ] && DOTNET_ROOT=/usr/share/dotnet
 #[ -z "$DOTNET_ROOT" ] && DOTNET_ROOT=$DOTNET_ROOT/tools
+[ -d "/usr/share/dotnet" ] && PATH="$PATH:$DOTNET_ROOT"
 
 
 export DOTNET_NOLOGO=true
