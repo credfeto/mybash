@@ -118,8 +118,8 @@ export MSBUILDTERMINALLOGGER=auto
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-alias npm="socket npm"
-alias npx="socket npx"
+[-f "/usr/bin/socket" ] && alias npm="socket npm"
+[-f "/usr/bin/socket" ] && alias npx="socket npx"
 export NODE_OPTIONS="--max-old-space-size=8192"
 
 # SAM
@@ -129,6 +129,9 @@ export SAM_CLI_BETA_ESBUILD=1
 [ -f "$HOME/work/funfair/secrets.bashrc" ] && \. "$HOME/work/funfair/secrets.bashrc" 
 
 [ -f "$HOME/.local/share/JetBrains/Toolbox/scripts" ] && PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
+
+# docker
+alias docker="sudo docker"
 
 #######################################################
 # PACMAN ALIASES
