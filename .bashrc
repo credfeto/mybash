@@ -144,6 +144,13 @@ alias pacman-reinstall="pacman -Qqn | sudo pacman -S -"
 alias pacman-rebuild-aur="yay -Sy --rebuildtree --rebuildall $(pacman -Qqme)"
 alias pacman-remove-unused="pacman -Qdtq | sudo pacman -Rs -"
 
+
+#######################################################
+# SHUTDOWN/RESTART
+#######################################################
+alias shutdown="sudo shutdown"
+alias reboot="sudo reboot"
+
 #######################################################
 # SOURCED ALIAS'S AND SCRIPTS BY zachbrowne.me
 #######################################################
@@ -634,19 +641,9 @@ trim()
 	var="${var%"${var##*[![:space:]]}"}"  # remove trailing whitespace characters
 	echo -n "$var"
 }
-# GitHub Titus Additions
-
-gcom() {
-	git add .
-	git commit -m "$1"
-	}
-lazyg() {
-	git add .
-	git commit -m "$1"
-	git push
-}
 
 alias lookingglass="~/looking-glass-B5.0.1/client/build/looking-glass-client -F"
+
 #######################################################
 # Set the ultimate amazing command prompt
 #######################################################
