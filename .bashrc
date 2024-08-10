@@ -86,6 +86,11 @@ export NVM_DIR="$XDG_DATA_HOME/nvm"
 # XAuthority
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 
+#######################################################
+# SSH/SSH AGENT
+#######################################################
+
+export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
 
 
 #######################################################
