@@ -90,8 +90,12 @@ export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 # SSH/SSH AGENT
 #######################################################
 
+# IF ssh-agent is being used
 export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
 
+# If gpg-agent is being used
+#export SSH_AGENT_PID=""
+#export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
 
 #######################################################
 # SCRIPT Paths
