@@ -132,7 +132,7 @@ export SuppressNETCoreSdkPreviewMessage=true
 
 [ -f "/usr/bin/socket" ] && alias npm="socket npm"
 [ -f "/usr/bin/socket" ] && alias npx="socket npx"
-export NODE_OPTIONS="--max-old-space-size=8192"
+export NODE_OPTIONS="--max-old-space-size=16384"
 
 # SAM
 export SAM_CLI_BETA_ESBUILD=1
