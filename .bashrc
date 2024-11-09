@@ -40,6 +40,7 @@ export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
 [ ! -d "$XDG_STATE_HOME/bash" ] && mkdir "$XDG_STATE_HOME/bash" > /dev/null 2>&1
 export HISTFILE="${XDG_STATE_HOME}/bash/history"
 
+
 # Cargo
 [ ! -d "$XDG_DATA_HOME/cargo" ] && mkdir "$XDG_DATA_HOME/cargo" > /dev/null 2>&1
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
@@ -88,6 +89,9 @@ export NVM_DIR="$XDG_DATA_HOME/nvm"
 # XAuthority
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 
+export PSQL_HISTORY="$XDG_DATA_HOME/psql_history"
+
+
 #######################################################
 # SSH/SSH AGENT
 #######################################################
@@ -99,7 +103,31 @@ export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
 #export SSH_AGENT_PID=""
 #export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
 
+
+
 #######################################################
+# Android/ADB
+#######################################################
+export ANDROID_USER_HOME="$XDG_DATA_HOME"/android
+alias adb='HOME="$XDG_DATA_HOME"/android adb'
+
+#######################################################
+# Ansible
+#######################################################
+
+export ANSIBLE_HOME="$XDG_DATA_HOME"/ansible
+
+
+#######################################################
+# WGET
+#######################################################
+
+alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
+
+#######################################################
+#######################################################
+#######################################################
+
 # SCRIPT Paths
 #######################################################
 
