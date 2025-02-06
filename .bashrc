@@ -130,8 +130,9 @@ export SuppressNETCoreSdkPreviewMessage=true
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-[ -f "/usr/bin/socket" ] && alias npm="socket npm"
-[ -f "/usr/bin/socket" ] && alias npx="socket npx"
+#alias npm="npm"
+#alias npx="npx"
+#alias npm="npm"
 export NODE_OPTIONS="--max-old-space-size=16384"
 
 # SAM
@@ -275,10 +276,10 @@ alias ping='ping -c 10'
 alias less='less -R'
 alias cls='clear'
 alias pacman='sudo pacman'
-alias multitail='multitail --no-repeat -c'
-alias freshclam='sudo freshclam'
-alias npm="socket npm"
-alias npx="socket npx"
+#alias multitail='multitail --no-repeat -c'
+#alias freshclam='sudo freshclam'
+#alias npm="socket npm"
+#alias npx="socket npx"
 
 # Change directory aliases
 alias home='cd ~'
@@ -670,3 +671,7 @@ eval "$(starship init bash)"
 . /usr/share/autojump/autojump.sh
 
 
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
