@@ -1,6 +1,8 @@
 #!/bin/bash
 iatest=$(expr index "$-" i)
 
+[ -f /etc/os-release ] && source /etc/os-release
+export LINUX_DISTRIBUTION=$ID
 
 #echo "HOME: $HOME"
 
@@ -150,10 +152,14 @@ alias docker="sudo docker"
 # PACMAN ALIASES
 #######################################################
 
+if [ "$LINUX_DISTRIBUTION" = "arch" ] ; then
+
+alias pacman='sudo pacman'
 alias pacman-reinstall="pacman -Qqn | sudo pacman -S -"
 alias pacman-rebuild-aur="yay -Sy --rebuildtree --rebuildall $(pacman -Qqme)"
 alias pacman-remove-unused="pacman -Qdtq | sudo pacman -Rs -"
 
+fi
 
 #######################################################
 # SHUTDOWN/RESTART
@@ -275,7 +281,6 @@ alias ps='ps auxf'
 alias ping='ping -c 10'
 alias less='less -R'
 alias cls='clear'
-alias pacman='sudo pacman'
 #alias multitail='multitail --no-repeat -c'
 #alias freshclam='sudo freshclam'
 #alias npm="socket npm"
