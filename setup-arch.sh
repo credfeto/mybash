@@ -35,8 +35,8 @@ installDepend(){
     DEPENDENCIES1='bash bash-completion'
     DEPENDENCIES2='autojump'
     echo -e "${YELLOW}Installing dependencies...${RC}"
-    yay -S ${DEPENDENCIES1}
-    yay -S ${DEPENDENCIES2}
+    yay -S ${DEPENDENCIES1} --needed --noconfirm
+    yay -S ${DEPENDENCIES2} --needed --noconfirm
     sudo mkdir /usr/local/bin/autojump
     sudo ln -s /etc/profile.d/autojump.sh /usr/share/autojump/autojump.sh
 }
