@@ -708,3 +708,5 @@ eval "$(starship init bash)"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+export DOTNET_PREVIEW_VERSION=10
