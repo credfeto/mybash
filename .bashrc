@@ -141,7 +141,6 @@ alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 [ -d "/usr/share/dotnet" ] && [ -z "$DOTNET_ROOT" ] && DOTNET_ROOT=/usr/share/dotnet
 #[ -z "$DOTNET_ROOT" ] && DOTNET_ROOT=$DOTNET_ROOT/tools
 [ -d "/usr/share/dotnet" ] && PATH="$PATH:$DOTNET_ROOT"
-#export DOTNET_BUILDS_CDN=https://builds.dotnet.markridgwell.com
 
 
 # Dotnet settings
