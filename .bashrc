@@ -27,6 +27,7 @@ export XDG_CACHE_HOME=$HOME/.cache
 [ ! -d "$XDG_CACHE_HOME" ] && mkdir $XDG_CACHE_HOME > /dev/null 2>&1
 
 [ -z "TMP" ] && export TMP=$XDG_RUNTIME_DIR
+[ -z "TMPDIR" ] && export TMPDIR=$XDG_RUNTIME_DIR
 [ -z "TEMP" ] && export TEMP=$XDG_RUNTIME_DIR
 
 
