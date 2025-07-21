@@ -544,8 +544,9 @@ pwdtail ()
 alias update="update"
 function update ()
 {
-  echo "Updating (bash)"
+
   if [ -f /usr/bin/topgrade ]; then
+	# Update system packages - exclude things that are managed separately
     /usr/bin/topgrade -y \
 		--disable=jetbrains_aqua \
 		--disable=jetbrains_clion \
@@ -565,9 +566,10 @@ function update ()
 		--disable=dotnet
 
   else
+	# Update flatpaks if they're present
     [ -f /usr/bin/flatpak ] && flatpak update -y
 
-
+    # Update system packages ysung the native tool
     if [ -f /usr/bin/yay ]; then
 		yay -Syu --noconfirm
 		sudo rm -fr /var/cache/pacman/pkg/download-*
@@ -578,6 +580,9 @@ function update ()
 		sudo apt update && sudo apt dist-upgrade -y && sudo apt auto-remove -y
 	fi
   fi
+
+  # if systemd repo is present then update
+  [ -f "$HOME/work/personal/credfeto-systemd/install" ] && "$HOME/work/personal/credfeto-systemd/install"
 }
 
 
