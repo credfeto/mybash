@@ -539,137 +539,46 @@ pwdtail ()
 	pwd|awk -F/ '{nlast = NF -1;print $nlast"/"$NF}'
 }
 
-# Show the current distribution
-distribution ()
+
+# update
+alias update="update"
+function update ()
 {
-	local dtype
-	# Assume unknown
-	dtype="unknown"
-	
-	# First test against Fedora / RHEL / CentOS / generic Redhat derivative
-	if [ -r /etc/rc.d/init.d/functions ]; then
-		source /etc/rc.d/init.d/functions
-		[ zz`type -t passed 2>/dev/null` == "zzfunction" ] && dtype="redhat"
-	
-	# Then test against SUSE (must be after Redhat,
-	# I've seen rc.status on Ubuntu I think? TODO: Recheck that)
-	elif [ -r /etc/rc.status ]; then
-		source /etc/rc.status
-		[ zz`type -t rc_reset 2>/dev/null` == "zzfunction" ] && dtype="suse"
-	
-	# Then test against Debian, Ubuntu and friends
-	elif [ -r /lib/lsb/init-functions ]; then
-		source /lib/lsb/init-functions
-		[ zz`type -t log_begin_msg 2>/dev/null` == "zzfunction" ] && dtype="debian"
-	
-	# Then test against Gentoo
-	elif [ -r /etc/init.d/functions.sh ]; then
-		source /etc/init.d/functions.sh
-		[ zz`type -t ebegin 2>/dev/null` == "zzfunction" ] && dtype="gentoo"
-	
-	# For Mandriva we currently just test if /etc/mandriva-release exists
-	# and isn't empty (TODO: Find a better way :)
-	elif [ -s /etc/mandriva-release ]; then
-		dtype="mandriva"
+  echo "Updating (bash)"
+  if [ -f /usr/bin/topgrade ]; then
+    /usr/bin/topgrade -y \
+		--disable=jetbrains_aqua \
+		--disable=jetbrains_clion \
+		--disable=jetbrains_datagrip \
+		--disable=jetbrains_dataspell \
+		--disable=jetbrains_gateway \
+		--disable=jetbrains_goland \
+		--disable=jetbrains_idea \
+		--disable=jetbrains_mps \
+		--disable=jetbrains_phpstorm \
+		--disable=jetbrains_pycharm \
+		--disable=jetbrains_rider \
+		--disable=jetbrains_rubymine \
+		--disable=jetbrains_rustrover \
+		--disable=jetbrains_toolbox \
+		--disable=jetbrains_webstorm \
+		--disable=dotnet
 
-	# For Slackware we currently just test if /etc/slackware-version exists
-	elif [ -s /etc/slackware-version ]; then
-		dtype="slackware"
+  else
+    [ -f /usr/bin/flatpak ] && flatpak update -y
 
+
+    if [ -f /usr/bin/yay ]; then
+		yay -Syu --noconfirm
+		sudo rm -fr /var/cache/pacman/pkg/download-*
+		yay -Sc --noconfirm
+	elif [ -f /usr/bin/pacman ]; then
+		sudo pacman -Syu --noconfirm
+	elif [ -f /usr/bin/apt ]; then
+		sudo apt update && sudo apt dist-upgrade -y && sudo apt auto-remove -y
 	fi
-	echo $dtype
+  fi
 }
-
-# Show the current version of the operating system
-ver ()
-{
-	local dtype
-	dtype=$(distribution)
-
-	if [ $dtype == "redhat" ]; then
-		if [ -s /etc/redhat-release ]; then
-			cat /etc/redhat-release && uname -a
-		else
-			cat /etc/issue && uname -a
-		fi
-	elif [ $dtype == "suse" ]; then
-		cat /etc/SuSE-release
-	elif [ $dtype == "debian" ]; then
-		lsb_release -a
-		# sudo cat /etc/issue && sudo cat /etc/issue.net && sudo cat /etc/lsb_release && sudo cat /etc/os-release # Linux Mint option 2
-	elif [ $dtype == "gentoo" ]; then
-		cat /etc/gentoo-release
-	elif [ $dtype == "mandriva" ]; then
-		cat /etc/mandriva-release
-	elif [ $dtype == "slackware" ]; then
-		cat /etc/slackware-version
-	else
-		if [ -s /etc/issue ]; then
-			cat /etc/issue
-		else
-			echo "Error: Unknown distribution"
-			exit 1
-		fi
-	fi
-}
-
-# Automatically install the needed support files for this .bashrc file
-install_bashrc_support ()
-{
-	local dtype
-	dtype=$(distribution)
-
-	if [ $dtype == "redhat" ]; then
-		sudo yum install multitail tree joe
-	elif [ $dtype == "suse" ]; then
-		sudo zypper install multitail
-		sudo zypper install tree
-		sudo zypper install joe
-	elif [ $dtype == "debian" ]; then
-		sudo apt-get install multitail tree joe
-	elif [ $dtype == "gentoo" ]; then
-		sudo emerge multitail
-		sudo emerge tree
-		sudo emerge joe
-	elif [ $dtype == "mandriva" ]; then
-		sudo urpmi multitail
-		sudo urpmi tree
-		sudo urpmi joe
-	elif [ $dtype == "slackware" ]; then
-		echo "No install support for Slackware"
-	else
-		echo "Unknown distribution"
-	fi
-}
-
-# Show current network information
-netinfo ()
-{
-	echo "--------------- Network Information ---------------"
-	/sbin/ifconfig | awk /'inet addr/ {print $2}'
-	echo ""
-	/sbin/ifconfig | awk /'Bcast/ {print $3}'
-	echo ""
-	/sbin/ifconfig | awk /'inet addr/ {print $4}'
-
-	/sbin/ifconfig | awk /'HWaddr/ {print $4,$5}'
-	echo "---------------------------------------------------"
-}
-
-# IP address lookup
-alias whatismyip="whatsmyip"
-function whatsmyip ()
-{
-	# Dumps a list of all IP addresses for every device
-	# /sbin/ifconfig |grep -B1 "inet addr" |awk '{ if ( $1 == "inet" ) { print $2 } else if ( $2 == "Link" ) { printf "%s:" ,$1 } }' |awk -F: '{ print $1 ": " $3 }';
-
-	# Internal IP Lookup
-	echo -n "Internal IP: " ; /sbin/ifconfig eth0 | grep "inet addr" | awk -F: '{print $2}' | awk '{print $1}'
-
-	# External IP Lookup
-	echo -n "External IP: " ; wget http://smart-ip.net/myip -O - -q
-}
-
 
 
 
@@ -691,8 +600,6 @@ trim()
 	echo -n "$var"
 }
 
-alias lookingglass="~/looking-glass-B5.0.1/client/build/looking-glass-client -F"
-
 #######################################################
 # Set the ultimate amazing command prompt
 #######################################################
@@ -711,7 +618,9 @@ eval "$(starship init bash)"
 
 
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+if [ -d "$HOME/.bun" ]; then
+	# bun
+	export BUN_INSTALL="$HOME/.bun"
+	export PATH="$BUN_INSTALL/bin:$PATH"
+fi
 
