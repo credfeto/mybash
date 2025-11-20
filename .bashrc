@@ -629,3 +629,10 @@ if [ -d "$HOME/.bun" ]; then
 	export PATH="$BUN_INSTALL/bin:$PATH"
 fi
 
+# Socket CLI completion for "socket"
+if [ -f "/home/markr/.local/share/socket/completion/socket-completion.bash" ]; then
+    # Load the tab completion script
+    source "/home/markr/.local/share/socket/completion/socket-completion.bash"
+    # Tell bash to use this function for tab completion of this function
+    complete -F _socket_completion socket
+fi
