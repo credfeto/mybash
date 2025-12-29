@@ -132,14 +132,19 @@ alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 
 #######################################################
 #######################################################
-#######################################################
 
+
+#######################################################
 # SCRIPT Paths
 #######################################################
 
+
 [ -d "$HOME/work/personal/scripts/db" ] && PATH="$PATH:$HOME/work/personal/scripts/db"
+[ -d "$HOME/work/personal/scripts/development" ] && PATH="$PATH:$HOME/work/personal/scripts/development"
 [ -d "$HOME/work/personal/scripts/general" ] && PATH="$PATH:$HOME/work/personal/scripts/general"
 [ -d "$HOME/work/personal/scripts/git" ] && PATH="$PATH:$HOME/work/personal/scripts/git"
+[ -d "$HOME/work/personal/scripts/github" ] && PATH="$PATH:$HOME/work/personal/scripts/github"
+[ -d "$HOME/work/personal/scripts/network" ] && PATH="$PATH:$HOME/work/personal/scripts/network"
 
 # DOTNET
 [ -d "/zram/$LOGNAME/dotnet" ] && DOTNET_ROOT=/zram/$LOGNAME/dotnet
