@@ -194,7 +194,7 @@ alias docker="sudo docker"
 if [ "$LINUX_DISTRIBUTION" = "arch" ] ; then
 
 alias pacman='sudo pacman'
-alias pacman-reinstall="pacman -Qqn | sudo pacman -S -"
+alias pacman-reinstall="pacman -Qqn | sudo pacman -Syyu --noconfirm -"
 alias pacman-rebuild-aur="yay -Sy --rebuildtree --rebuildall $(pacman -Qqme)"
 alias pacman-remove-unused="pacman -Qdtq | sudo pacman -Rs -"
 
