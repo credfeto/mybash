@@ -553,22 +553,23 @@ function update ()
   if [ -f /usr/bin/topgrade ]; then
 	# Update system packages - exclude things that are managed separately
     /usr/bin/topgrade -y \
-		--disable=jetbrains_aqua \
-		--disable=jetbrains_clion \
-		--disable=jetbrains_datagrip \
-		--disable=jetbrains_dataspell \
-		--disable=jetbrains_gateway \
-		--disable=jetbrains_goland \
-		--disable=jetbrains_idea \
-		--disable=jetbrains_mps \
-		--disable=jetbrains_phpstorm \
-		--disable=jetbrains_pycharm \
-		--disable=jetbrains_rider \
-		--disable=jetbrains_rubymine \
-		--disable=jetbrains_rustrover \
-		--disable=jetbrains_toolbox \
-		--disable=jetbrains_webstorm \
-		--disable=dotnet
+        --disable=containers \
+        --disable=dotnet \
+        --disable=jetbrains_aqua \
+        --disable=jetbrains_clion \
+        --disable=jetbrains_datagrip \
+        --disable=jetbrains_dataspell \
+        --disable=jetbrains_gateway \
+        --disable=jetbrains_goland \
+        --disable=jetbrains_idea \
+        --disable=jetbrains_mps \
+        --disable=jetbrains_phpstorm \
+        --disable=jetbrains_pycharm \
+        --disable=jetbrains_rider \
+        --disable=jetbrains_rubymine \
+        --disable=jetbrains_rustrover \
+        --disable=jetbrains_toolbox \
+        --disable=node 
 
   else
 	# Update flatpaks if they're present
