@@ -569,7 +569,8 @@ function update ()
         --disable=jetbrains_rubymine \
         --disable=jetbrains_rustrover \
         --disable=jetbrains_toolbox \
-        --disable=node 
+        --disable=node \
+        --disable=pnpm
 
   else
 	# Update flatpaks if they're present
