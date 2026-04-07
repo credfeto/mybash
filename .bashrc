@@ -643,3 +643,7 @@ if [ -f "/home/markr/.local/share/socket/completion/socket-completion.bash" ]; t
     # Tell bash to use this function for tab completion of this function
     complete -F _socket_completion socket
 fi
+
+if [ -f "$HOME/.claude.env" ]; then
+    source "$HOME/.claude.env"
+fi
