@@ -1,10 +1,11 @@
 #!/bin/bash
+
 iatest=$(expr index "$-" i)
 
 [ -f /etc/os-release ] && source /etc/os-release
 export LINUX_DISTRIBUTION=$ID
 
-#echo "HOME: $HOME"
+echo "HOME: $HOME"
 
 # The $XDG_DATA_HOME environment variable is not set, make sure to add it to your shell's configuration before setting any of the other environment variables!
 export XDG_DATA_HOME=$HOME/.local/share
@@ -191,7 +192,7 @@ alias docker="sudo docker"
 # PACMAN ALIASES
 #######################################################
 
-if [ "$LINUX_DISTRIBUTION" = "arch" ] ; then
+if [ "$LINUX_DISTRIBUTION" = "arch" ] || [ "$LINUX_DISTRIBUTION" = "cachyos" ] ; then
 
 alias pacman='sudo pacman'
 alias pacman-reinstall="pacman -Qqn | sudo pacman -Syyu --noconfirm -"
